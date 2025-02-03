@@ -8,7 +8,7 @@
   <style>
     .gradient-background {
       background: rgb(255, 182, 193);
-      background: linear-gradient(180deg, rgba(255, 182, 193, 1) 0%, rgba(255, 182, 193, 1) 36%, rgba(255, 183, 193, 1) 100%);
+      background: linear-gradient(180deg, rgba(255, 182, 193, 1) 0%, rgba(255, 182, 193, 1) 36%, rgba(255, 182, 193, 1) 100%);
     }
 
     .bounce2 {
@@ -31,7 +31,7 @@
 <body class="gradient-background">
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
-      <img id="imageDisplay" src="./images/valentine_1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
+      <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
       <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you be my Valentine, Gautami?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-    <script type = "module">
+  <script type="module">
     import confetti from 'https://cdn.skypack.dev/canvas-confetti';
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
@@ -54,10 +54,10 @@
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
   
-    let clickCount = 0;
-    let buttonHeight = 45; // Starting height in pixels
-    let buttonWidth = 70;
-    let fontSize = 15; // Starting font size in pixels
+    let noClickCount = 0;
+    let buttonHeight = 48; // Starting height in pixels
+    let buttonWidth = 80;
+    let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
       "./images/valentine_1.gif",
       "./images/valentine_2.gif",
@@ -69,23 +69,23 @@
     ];
   
     noButton.addEventListener('click', function() {
-      if (clickCount < 5) {
-        clickCount++;
-        imageDisplay.src = imagePaths[clickCount];
-        buttonHeight += 10; // Increase height each click
-        buttonWidth += 10;
-        fontSize += 3; // Increase font size each click
+      if (noClickCount < 5) {
+        noClickCount++;
+        imageDisplay.src = imagePaths[noClickCount];
+        buttonHeight += 25; // Increase height each click
+        buttonWidth += 25;
+        fontSize += 15; // Increase font size each click
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        if (clickCount < 6) {
-          noButton.textContent = ["No", "Really?", "Are you sure?", "Pookie please", "Pls :(", "Flip u :("] [clickCount];
+        if (noClickCount < 6) {
+          noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this", "Pls :(", "Flip u :("][noClickCount];
         }
       }
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = '../images/valentine_7.gif'; // Change to valentine_7.gif
+      imageDisplay.src = './images/image7.gif'; // Change to image7.gif
       valentineQuestion.textContent = "YAY!! :D"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
@@ -93,3 +93,4 @@
   </script>  
 </body>
 </html>
+
