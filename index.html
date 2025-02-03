@@ -79,7 +79,7 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (noClickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "G.MONEY please", "Don't do this", "Pls :(", "Flip u :("][noClickCount];
+          noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.7 GPA you better not click it again", "Flip u"][noClickCount];
         }
       }
     });
@@ -87,6 +87,7 @@
     yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/valentine_7.gif'; // Change to image7.gif
       valentineQuestion.textContent = "YAY!! :D"; // Change the question text
+      <h3 id="valentineQuestion2" class="text-4xl font-bold italic text-[#bd1e1e] my-4">HIP HIP HUZZAH</h3>
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
     });
