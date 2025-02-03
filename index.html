@@ -74,7 +74,7 @@
     noButton.addEventListener('click', function() {
       if (clickCount < 5) {
         clickCount++;
-        imageDisplay.src = imagePaths[noClickCount];
+        imageDisplay.src = imagePaths[clickCount];
         buttonHeight += 10; // Increase height each click
         buttonWidth += 10;
         fontSize += 3; // Increase font size each click
@@ -82,13 +82,13 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (clickCount < 6) {
-          noButton.textContent = ["No", "Really?", "Are you sure?", "Pookie please", "Pls :(", "Flip u :("] [noClickCount];
+          noButton.textContent = ["No", "Really?", "Are you sure?", "Pookie please", "Pls :(", "Flip u :("] [clickCount];
         }
       }
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = '.valentine_7.gif'; // Change to valentine_7.gif
+      imageDisplay.src = '../images/valentine_7.gif'; // Change to valentine_7.gif
       valentineQuestion.textContent = "YAY!! :D"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
