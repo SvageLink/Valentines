@@ -1,1 +1,32 @@
 <!DOCTYPE html>
+<html land = "en">
+  <meta charset = "UTF - 8">
+  <meta name = "viewport"  
+        content = "width = device-width, initial-scale = 1.0">
+  <title>Valentine's Day</title>
+  <script> src = "https://cdn.tailwindcss.com</script>
+  <style>
+    .gradient-background {
+      background: rgb(255, 182, 193);
+      background: linear-gradient(180deg, 
+                                  rgba(255, 182, 193, 1) 0%, 
+                                  rgba(255, 182, 193, 1) 36%,
+                                  rgba(255, 182, 193, 1) 100%);
+    }
+
+    .bounce{
+      animation: bounce 2s ease infinite;
+    }
+
+    @keyframes bounce{
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40%{
+        transform: translateY(-20px);
+      }
+      60%{
+        transform: translateY(-10px);
+      }
+    }
+  </style>
