@@ -44,7 +44,7 @@
           Yes
         </button>
         <button id = "noButton"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
+          class = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
           No
         </button>
       </div>
@@ -97,13 +97,13 @@
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
+
+        if(clickCount = 5){
+          noButton.style.display = 'none';
+        }
         if (clickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.8 GPA you better not click it again", "Flip u"][clickCount];
         }
-        
-        if(clickCount = 5){
-          noButton.style.display = 'none';
-      }
     });
   
     yesButton.addEventListener('click', () => {
