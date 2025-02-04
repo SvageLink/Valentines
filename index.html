@@ -98,9 +98,7 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
 
-        if(clickCount = 5){
-          noButton.style.display = 'none';
-        }else if (clickCount < 6) {
+        if (clickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.8 GPA you better not click it again", "Flip u"][clickCount];
         }
     });
