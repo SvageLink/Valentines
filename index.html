@@ -53,14 +53,19 @@
 
   <script type="module">
     //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+
+    //buttons
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
+
+    //images
     const imageDisplay = document.getElementById('imageDisplay');
     const heartDisplay = document.getElementById('heartDisplay');
 
+    //words and buttons
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
-  
+
     let clickCount = 0;
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
@@ -103,7 +108,19 @@
         }
       }
     });
-  
+
+    //fireworks
+    var duration = 15 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    var particleCount = 50 * (timeLeft / duration);
+    var interval = setInterval(function() {
+    var timeLeft = animationEnd - Date.now();
+      
     yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/valentine_7.gif'; // Change to valentine_7.gif
       heartDisplay.src = './images/heart.gif'; // Change to heart.gif
@@ -112,41 +129,11 @@
       responseButtons.style.display = 'none'; // Hide both buttons
      // confetti(); // Trigger confetti animation
 
-      var count = 200;
-var defaults = {
-  origin: { y: 0.7 }
-};
-
-function fire(particleRatio, opts) {
-  confetti({
-    ...defaults,
-    ...opts,
-    particleCount: Math.floor(count * particleRatio)
-  });
-}
-
-fire(0.25, {
-  spread: 26,
-  startVelocity: 55,
-});
-fire(0.2, {
-  spread: 60,
-});
-fire(0.35, {
-  spread: 100,
-  decay: 0.91,
-  scalar: 0.8
-});
-fire(0.1, {
-  spread: 120,
-  startVelocity: 25,
-  decay: 0.92,
-  scalar: 1.2
-});
-fire(0.1, {
-  spread: 120,
-  startVelocity: 45,
-});
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }); }, 250);
     });
   </script>  
 </body>
