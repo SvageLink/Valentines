@@ -34,10 +34,9 @@
 <body class = "gradient-background">
   <div class = "flex items-center justify-center h-screen">
     <div class = "flex flex-col items-center p-4">
-      <img id = "imageDisplay" src = "./images/valentine_1.gif" alt = "Cute kitten with flowers" class = "rounded-md h-[300px]" style="object-fit: cover;" />
-      <img id = "heartDisplay" src = "./images/heart.gif" alt = "heart" style = "float:right; width:128px; height:128px;" >
+      <img id = "imageDisplay" src = "./images/valentine_1.gif" alt = "Cute kitten with flowers" class = "rounded-md h-[300px]" style = "object-fit: cover;" />
+      <img id = "heartDisplay" src = "./images/heart.gif" alt = "heart" class = "rounded-md h-[128px]" style = "object-fit: cover;" />
 
-      
       <h2 id = "valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you please be my Valentine, Gautami?</h2>
       <div class = "flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id = "yesButton"
@@ -58,6 +57,7 @@
     const noButton = document.getElementById('noButton');
     const imageDisplay = document.getElementById('imageDisplay');
     const heartDisplay = document.getElementById('heartDisplay');
+
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
   
@@ -75,17 +75,16 @@
       "./images/valentine_7.gif"
     ];
 
-    const heartPaths = {
+    const heartPaths = [
       "./images/heart.gif",
       "./images/heartbreak.gif"
-    };
+    ];
         
     noButton.addEventListener('click', function() {
       if (clickCount < 5) {
         clickCount++;
         imageDisplay.src = imagePaths[clickCount];
         heartDisplay.src = heartPaths[clickCount];
-        
         
         buttonHeight += 15; // Increase height each click
         buttonWidth += 15;
@@ -101,8 +100,8 @@
   
     yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/valentine_7.gif'; // Change to valentine_7.gif
-      heartDisplay.src = './images/heart.gif';
-      
+      heartDisplay.src = './images/heart.gif'; // Change to heart.gif
+
       valentineQuestion.textContent = "YAY!! :D"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
