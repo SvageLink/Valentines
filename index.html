@@ -81,7 +81,7 @@
       "./images/heartbreak_2.gif",
       "./images/heartbreak_3.gif",
       "./images/angry_2.gif",
-      "./images/heartbreak_5.gif",
+      "./images/sad.gif",
       "./images/heart.gif"
     ];
         
@@ -100,8 +100,7 @@
 
         if(clickCount = 5){
           noButton.style.display = 'none';
-        }
-        if (clickCount < 6) {
+        }else if (clickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.8 GPA you better not click it again", "Flip u"][clickCount];
         }
     });
