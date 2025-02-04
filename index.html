@@ -52,7 +52,7 @@
   </div>
 
   <script type="module">
-    //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+    import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
     //buttons
     const yesButton = document.getElementById('yesButton');
@@ -119,32 +119,6 @@
       valentineQuestion.textContent = "YAY!! :D"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
      // confetti(); // Trigger confetti animation
-
-      var end = Date.now() + (15 * 1000);
-      //LONGHORNS
-      var colors = ['#BF5700', '#ffffff'];
-      
-      (function frame() {
-        confetti({
-          particleCount: 2,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 },
-          colors: colors
-        });
-        confetti({
-          particleCount: 2,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 },
-          colors: colors
-        });
-      
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
-      }());   
-      
       frame();
     });
   </script>  
