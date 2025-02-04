@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset = "UTF-8">
+  <meta name = "viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentines Day</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gradient-background {
       background: rgb(255, 182, 193);
-      background: linear-gradient(180deg, rgba(255, 182, 193, 1) 0%, rgba(255, 182, 193, 1) 36%, rgba(255, 182, 193, 1) 100%);
+      background: linear-gradient(180deg,
+                                  rgba(255, 182, 193, 1) 0%,
+                                  rgba(255, 182, 193, 1) 36%,
+                                  rgba(255, 182, 193, 1) 100%);
     }
 
     .bounce2 {
@@ -28,17 +31,21 @@
     }
   </style>
 </head>
-<body class="gradient-background">
-  <div class="flex items-center justify-center h-screen">
-    <div class="flex flex-col items-center p-4">
-      <img id="imageDisplay" src="./images/valentine_1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you please be my Valentine, Gautami?</h2>
-      <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
-        <button id="yesButton"
-          class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
+<body class = "gradient-background">
+  <div class = "flex items-center justify-center h-screen">
+    <div class = "flex flex-col items-center p-4">
+      <img id = "imageDisplay" src="./images/valentine_1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
+      <img src = "./images/heart.gif" alt = "heart" style = "float:right; width:128px; height:128px;">
+//      <img src = "./images/heart.gif" alt = "heart">
+
+      
+      <h2 id = "valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you please be my Valentine, Gautami?</h2>
+      <div class = "flex gap-4 pt-[20px] items-center" id="responseButtons">
+        <button id = "yesButton"
+          class = "bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
           Yes
         </button>
-        <button id="noButton"
+        <button id = "noButton"
           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
           No
         </button>
@@ -54,7 +61,7 @@
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
   
-    let noClickCount = 0;
+    let clickCount = 0;
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
@@ -69,17 +76,17 @@
     ];
   
     noButton.addEventListener('click', function() {
-      if (noClickCount < 5) {
-        noClickCount++;
-        imageDisplay.src = imagePaths[noClickCount];
+      if (clickCount < 5) {
+        clickCount++;
+        imageDisplay.src = imagePaths[clickCount];
         buttonHeight += 15; // Increase height each click
         buttonWidth += 15;
         fontSize += 10; // Increase font size each click
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        if (noClickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.7 GPA you better not click it again", "Flip u"][noClickCount];
+        if (clickCount < 6) {
+          noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.7 GPA you better not click it again", "Flip u"][clickCount];
         }
       }
     });
