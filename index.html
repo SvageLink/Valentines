@@ -35,7 +35,7 @@
   <div class = "flex items-center justify-center h-screen">
     <div class = "flex flex-col items-center p-4">
       <img id = "imageDisplay" src="./images/valentine_1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <img src = "./images/heart.gif" alt = "heart" style = "float:right; width:128px; height:128px;">
+      <img id = "heartDisplay" src = "./images/heart.gif" alt = "heart" style = "float:right; width:128px; height:128px;">
 
       
       <h2 id = "valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you please be my Valentine, Gautami?</h2>
@@ -57,6 +57,7 @@
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const imageDisplay = document.getElementById('imageDisplay');
+    const heartDisplay = document.getElementById('heartDisplay');
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
   
@@ -73,11 +74,18 @@
       "./images/valentine_6.gif",
       "./images/valentine_7.gif"
     ];
-  
+
+    const heartPaths = {
+      "./images/heart.gif",
+      "./images/heartbreak.gif"
+    };
+        
     noButton.addEventListener('click', function() {
       if (clickCount < 5) {
         clickCount++;
         imageDisplay.src = imagePaths[clickCount];
+        heartDisplay.src = heartPaths[clickCount];
+        
         buttonHeight += 15; // Increase height each click
         buttonWidth += 15;
         fontSize += 10; // Increase font size each click
@@ -85,13 +93,15 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (clickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.7 GPA you better not click it again", "Flip u"][clickCount];
+          noButton.textContent = ["No", "Are you sure?", "Chat lock in", "We deaduzz rn?", "On yo 2.8 GPA you better not click it again", "Flip u"][clickCount];
         }
       }
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/valentine_7.gif'; // Change to image7.gif
+      imageDisplay.src = './images/valentine_7.gif'; // Change to valentine_7.gif
+      heartDisplay.src = './images/heart.gif';
+      
       valentineQuestion.textContent = "YAY!! :D"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
