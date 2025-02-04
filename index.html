@@ -121,9 +121,8 @@
      // confetti(); // Trigger confetti animation
 
       var end = Date.now() + (15 * 1000);
-      
-      //LONGHORNS!
-      var colors = ['#BF5700', '#FFFFFF'];
+      //LONGHORNS
+      var colors = ['#BF5700', '#ffffff'];
       
       (function frame() {
         confetti({
@@ -144,7 +143,9 @@
         if (Date.now() < end) {
           requestAnimationFrame(frame);
         }
-      }());      
+      }());   
+      
+      frame();
     });
   </script>  
 </body>
